@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid-19 Tracker</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body style="background-color:black">
+<h1 style="color:white; text-align:center; margin-top:110px;">{{userinput}}</h1>
+<h1 style="text-align:center; margin-top:150px; color:white; margin:20px" ><span style="color:red">Covid-19</span> RealTime Data</h1>
+<form class="d-flex justify-content-center align-items-center" method="post" action="">
+    {% csrf_token %}
+    <select style="width:200px" class="form-select" name="selection">
+        <option disabled selected="selected">Default</option>
+    {% for items in response %}
+        <option>{{items}}</option>
+    {% endfor %}
+    </select>
+    <input style="margin-left:10px" class="btn btn-success" type="submit">
+</form>
+<div style="color:white; margin-top:30px" class="d-flex justify-content-center align-items-center">
+    <div class="container" style="height:100px; width:220px; background-color:purple">
+        <h2 style="text-align:center">New<br>{{new}}</h2></div>
+    <div class="container" style="height:100px; width:220px; background-color:blue">
+        <h2 style="text-align:center">Active<br>{{active}}</h2></div><br>
+    <div class="container" style="height:100px; width:220px; background-color:green">
+        <h2 style="text-align:center">Recovered<br>{{recovered}}</h2></div></div>
+<div style="color:white; margin-top:20px" class="d-flex justify-content-center align-items-center">
+    <div class="container" style="height:100px; width:220px; background-color:skyblue">
+        <h2 style="text-align:center">Critical<br>{{critical}}</h2></div>
+    <div class="container" style="height:100px; width:220px; background-color:orange">
+        <h2 style="text-align:center">Total<br>{{total}}</h2></div>
+    <div class="container" style="height:100px; width:220px; background-color:red">
+        <h2 style="text-align:center">Deaths<br>{{deaths}}</h2></div>
+</div>
+<footer style="color:grey; text-align:center; margin-top:120px">Developed By: <span style="color:white">Prakhar Sharma</span></footer>
+</body>
+</html>
