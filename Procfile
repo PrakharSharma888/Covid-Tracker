@@ -1,1 +1,1 @@
-web: gunicorn Verylatest.wsgi
+web: gunicorn Covid.wsgi
